@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design tokens ──────────────────────────────────────────────── */
+:root {
+  /* Light (default) */
+  --color-bg: 252 252 253;       /* #fcfcfd  near-white */
+  --color-surface: 255 255 255;  /* #ffffff */
+  --color-ink: 10 10 12;         /* #0a0a0c  near-black */
+  --color-muted: 100 105 118;    /* #646976 */
+  --color-line: 228 229 233;     /* #e4e5e9 */
+  --color-accent: 37 99 235;     /* #2563eb  cleaner blue */
+  --color-accent-soft: 239 246 255; /* #eff6ff */
+  --color-teal: 13 148 136;      /* #0d9488 */
+  --color-dark: 10 10 12;        /* same as ink */
+}
+
+.dark {
+  --color-bg: 11 12 16;
+  --color-surface: 18 19 24;
+  --color-ink: 248 248 250;
+  --color-muted: 148 151 162;
+  --color-line: 36 38 46;
+  --color-accent: 96 165 250;
+  --color-accent-soft: 23 37 84;
+  --color-teal: 45 212 191;
+  --color-dark: 0 0 0;
+}
+
+/* ─── Base reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  @apply bg-bg font-sans text-ink antialiased transition-colors duration-300;
+}
+
+h1, h2, h3, h4 { @apply font-display tracking-tight; }
+
+::selection { background: rgb(var(--color-accent)); color: #fff; }
+
+/* Skip link */
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100]
+         focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-bg;
+}
+
+/* ─── Shared component classes ───────────────────────────────────── */
+@layer components {
+  .section-container {
+    @apply mx-auto max-w-[1100px] px-5 sm:px-8 lg:px-10;
+  }
+
+  /* Primary CTA — dark fill, lifts on hover */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5
+           text-sm font-semibold text-bg transition-all
+           hover:-translate-y-0.5 hover:bg-accent hover:text-white
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+  }
+
+  /* Secondary CTA — bordered, no fill */
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-surface
+           px-7 py-3.5 text-sm font-semibold text-ink transition-all
+           hover:-translate-y-0.5 hover:border-ink hover:bg-ink hover:text-bg
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink;
+  }
+
+  /* Tech / skill pill */
+  .tag {
+    @apply inline-flex items-center gap-1.5 rounded-md border border-line bg-surface
+           px-2.5 py-1 font-mono text-[11.5px] text-ink transition-all
+           hover:-translate-y-0.5 hover:border-accent hover:text-accent;
+  }
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Form field */
+.field-input {
+  @apply w-full rounded-lg border border-line bg-bg px-4 py-3 text-[15px] text-ink placeholder:text-muted/40
+         transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/10;
+}
