@@ -4,7 +4,7 @@ Personal portfolio of **Ryaan Devnani** — Software Developer and
 third-year B.Tech (AI & Data Science) student. Built with React,
 TypeScript, Vite, and Tailwind CSS.
 
-🔗 **Live site:** https://ryaandevnani.dev _(replace with your deployed URL)_
+🔗 **Live site:** https://ryaandevnani.netlify.app/
 
 ## ✨ Features
 
