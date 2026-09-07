@@ -10,5 +10,5 @@ export const profile = {
   ],
   bioMuted:
     "Right now I'm looking for internship opportunities where I can apply software development, data analysis, and AI fundamentals to real problems — and keep learning fast along the way.",
-  resumeUrl: '/resume/Ryaan_Devnani_Resume.pdf',
+  resumeUrl: '/resume/Ryaan CV.pdf',
 };

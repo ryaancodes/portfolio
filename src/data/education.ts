@@ -6,7 +6,7 @@ export const EDUCATION: EducationItem[] = [
     period: '2024 — 2028',
     title: 'B.Tech, Artificial Intelligence & Data Science',
     institution: 'Thadomal Shahani Engineering College, Mumbai University',
-    detail: 'Currently in third year · CGPA: 7.50 / 10',
+    detail: 'Currently in third year · CGPA: 7.44 / 10',
   },
   {
     id: 'hsc',
@@ -25,7 +25,7 @@ export const EDUCATION: EducationItem[] = [
 ];
 
 export const ACHIEVEMENTS: AchievementItem[] = [
-  { id: 'gpa', value: '7.50 / 10', label: 'CGPA' },
+  { id: 'gpa', value: '7.44 / 10', label: 'CGPA' },
   { id: 'year', value: '3rd Year', label: 'AI & Data Science' },
   {
     id: 'projects',
