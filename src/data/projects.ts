@@ -6,13 +6,13 @@ export const PROJECTS: Project[] = [
     title: 'TurfItUp',
     tagline: 'Turf Booking & Management System',
     description:
-      'A web platform for browsing turf availability, picking a slot and confirming a booking in a few clicks — built to replace the usual back-and-forth of phone calls and group chats with a clean, structured flow.',
+      'A full booking flow for discovering turfs, selecting available slots, and confirming bookings — designed to make turf reservations simpler than the usual phone calls and group chats.',
     features: [
-      'Browse available turfs with details on format (5v5 / 7v7 / 11v11) and timings',
-      'Slot-based booking flow with real-time availability checks',
-      'Booking confirmation page with summary of selected slot',
-      'Form submissions handled through Netlify Forms for easy tracking',
-      'Responsive layout designed for quick booking on mobile',
+      'Turf discovery with format, timing, and availability details',
+      'Slot-based booking flow with availability checks',
+      'Booking summary and confirmation flow',
+      'Structured booking submissions through Netlify Forms',
+      'Responsive interface designed around mobile booking',
     ],
     techStack: [
       { name: 'HTML', icon: 'devicon-html5-plain colored' },
@@ -21,26 +21,27 @@ export const PROJECTS: Project[] = [
       { name: 'Netlify Forms' },
     ],
     architecture:
-      'A static multi-page site (index, turf selection, payment and success pages) with shared styling and a single script.js handling slot selection state and form interactions. Bookings are captured via Netlify Forms, removing the need for a custom backend while still giving structured submission data.',
+      'A static multi-page application covering turf selection, booking, payment, and confirmation. Shared styling keeps the interface consistent, while JavaScript manages slot-selection state and form interactions. Netlify Forms handles booking submissions without requiring a custom backend.',
     challenges: [
-      'Designing a slot-selection UI that stays clear even as the number of turfs and time slots grows',
-      'Structuring multi-page navigation (selection → payment → success) so state carries through cleanly without a framework',
-      'Keeping the booking flow usable on small screens, since most users book from their phones',
+      'Designing a booking interface that remains easy to navigate as turfs and time slots increase',
+      'Passing booking state across multiple pages without relying on a frontend framework',
+      'Building a mobile-first flow that keeps the important booking information easy to scan',
     ],
     liveUrl: 'https://turfitup.netlify.app/',
+    githubUrl: 'https://github.com/ryaancodes/turf-booking-system',
   },
   {
     id: 'feedback-collector',
     title: 'Feedback Collector',
-    tagline: 'Feedback Collection & Dashboard',
+    tagline: 'Feedback Collection & Admin Dashboard',
     description:
-      'A platform for gathering, organising and analysing user feedback in one place — with a public submission form on the front end and a login-protected admin dashboard backed by a database for reviewing responses.',
+      'A full-stack feedback platform with a public submission flow and a protected admin dashboard for storing, browsing, and reviewing responses.',
     features: [
-      'Public-facing feedback form for collecting structured responses',
-      'Admin login flow protecting access to submitted feedback',
-      'Dashboard view for browsing and reviewing collected feedback',
-      'Relational data model for storing and querying feedback records',
-      'Separation of public routes and authenticated admin routes',
+      'Public form for collecting structured feedback',
+      'Admin authentication for protected dashboard access',
+      'Dashboard for browsing and reviewing submissions',
+      'MySQL database for persistent feedback records',
+      'Separate public and authenticated application routes',
     ],
     techStack: [
       { name: 'Node.js', icon: 'devicon-nodejs-plain colored' },
@@ -51,12 +52,13 @@ export const PROJECTS: Project[] = [
       { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
     ],
     architecture:
-      'An Express server exposes separate route modules for the public feedback form and the admin dashboard. A MySQL database (initialised via a SQL schema file) stores feedback entries and admin credentials, with a small hashing utility used to secure admin login. Static front-end pages are served for the form, login and dashboard views.',
+      'An Express backend separates public feedback routes from authenticated admin routes. MySQL provides persistent storage for feedback and admin records, while the application includes credential hashing and verification for the admin login flow. The frontend consists of dedicated form, login, and dashboard views.',
     challenges: [
-      'Designing a database schema that keeps feedback entries structured enough to analyse later',
-      'Separating public and admin routes so the dashboard stays behind a login while the feedback form remains open',
-      'Hashing and verifying admin credentials safely instead of storing plain text passwords',
+      'Designing a relational schema for storing feedback in a structured format',
+      'Separating public submission routes from protected admin functionality',
+      'Implementing credential hashing and verification instead of storing passwords in plain text',
     ],
     liveUrl: 'https://feedbackcollectorsystem.netlify.app/',
+    githubUrl: 'https://github.com/ryaancodes/feedback-system',
   },
 ];
