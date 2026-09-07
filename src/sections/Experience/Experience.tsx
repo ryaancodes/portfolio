@@ -1,5 +1,11 @@
 import { motion } from 'framer-motion';
-import { Briefcase, Layers, MessageSquare, Zap, type LucideIcon } from 'lucide-react';
+import {
+  Briefcase,
+  Phone,
+  MessageSquare,
+  Users,
+  type LucideIcon,
+} from 'lucide-react';
 import { SectionHeading } from '@/components/SectionHeading';
 import { fadeInUp, staggerContainer } from '@/animations/variants';
 
@@ -14,36 +20,31 @@ interface Highlight {
 
 const HIGHLIGHTS: Highlight[] = [
   {
-    icon: Zap,
-    title: 'TurfItUp',
+    icon: Briefcase,
+    title: 'AIESEC — Incoming Global Talent',
     description:
-      'Full-stack turf booking platform — users can browse available slots, select timings, pay, and get instant booking confirmation. Built end-to-end with HTML, CSS, JS, and Netlify Forms.',
-    href: '#work',
-    linkLabel: 'View project',
+      'Junior Manager · 2026 – Present. Contributing to the Incoming Global Talent function across candidate engagement, interviews, outreach, and coordination.',
+    accent: true,
+  },
+  {
+    icon: Phone,
+    title: 'Candidate Engagement',
+    description:
+      'Connect with prospective talent through calls and direct communication, helping candidates understand relevant opportunities and stay engaged throughout the process.',
+    accent: true,
+  },
+  {
+    icon: Users,
+    title: 'Candidate Interviews',
+    description:
+      'Conduct candidate interviews and interact with applicants to understand their profiles, interests, and alignment with available opportunities.',
     accent: true,
   },
   {
     icon: MessageSquare,
-    title: 'Feedback Collector',
+    title: 'Outreach & Coordination',
     description:
-      'Feedback management platform with a public submission form, login-protected admin dashboard, and a MySQL database for storing and reviewing responses. Node.js + Express backend.',
-    href: '#work',
-    linkLabel: 'View project',
-    accent: true,
-  },
-  {
-    icon: Briefcase,
-    title: 'Actively seeking internships',
-    description:
-      "Open to software development internship roles — remote or Mumbai-based. I'm looking to apply full-stack skills and AI/DS coursework to real product challenges.",
-    href: '#contact',
-    linkLabel: 'Reach out',
-  },
-  {
-    icon: Layers,
-    title: 'Full-stack experience through projects',
-    description:
-      'Hands-on depth across the full stack: frontend interfaces, REST APIs with Node/Express, relational databases in MySQL, and deployment via Netlify — learned entirely by shipping.',
+      'Support outreach, follow-ups, and candidate communication while coordinating with the IGT team throughout the talent process.',
   },
 ];
 
@@ -53,9 +54,9 @@ export function Experience() {
       <div className="section-container">
         <SectionHeading
           index="4"
-          tag="Projects & Experience"
-          title={<>Built for the real world</>}
-          description="No formal internships yet — here's what I've shipped, and what I'm looking for next."
+          tag="Experience"
+          title={<>Real-world experience</>}
+          description="Currently a Junior Manager in AIESEC's Incoming Global Talent function, working across candidate engagement, interviews, outreach, and coordination."
         />
 
         <motion.div
@@ -65,36 +66,44 @@ export function Experience() {
           viewport={{ once: true, amount: 0.1 }}
           className="grid gap-4 sm:grid-cols-2"
         >
-          {HIGHLIGHTS.map(({ icon: Icon, title, description, href, linkLabel, accent }) => (
-            <motion.div
-              key={title}
-              variants={fadeInUp}
-              className="group flex flex-col gap-5 rounded-2xl border border-line bg-surface p-7 transition-all hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-lg hover:shadow-ink/5"
-            >
-              <span
-                className={
-                  accent
-                    ? 'flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-white'
-                    : 'flex h-10 w-10 items-center justify-center rounded-xl bg-accent-soft text-accent'
-                }
+          {HIGHLIGHTS.map(
+            ({ icon: Icon, title, description, href, linkLabel, accent }) => (
+              <motion.div
+                key={title}
+                variants={fadeInUp}
+                className="group flex flex-col gap-5 rounded-2xl border border-line bg-surface p-7 transition-all hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-lg hover:shadow-ink/5"
               >
-                <Icon className="h-4.5 w-4.5" />
-              </span>
-              <div className="flex-1">
-                <h3 className="mb-2 text-[16px] font-semibold text-ink">{title}</h3>
-                <p className="text-[14.5px] leading-[1.7] text-muted">{description}</p>
-              </div>
-              {href && (
-                <a
-                  href={href}
-                  className="mt-auto inline-flex items-center gap-1 text-[13px] font-semibold text-accent hover:underline"
+                <span
+                  className={
+                    accent
+                      ? 'flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-white'
+                      : 'flex h-10 w-10 items-center justify-center rounded-xl bg-accent-soft text-accent'
+                  }
                 >
-                  {linkLabel}
-                  <span aria-hidden="true"> →</span>
-                </a>
-              )}
-            </motion.div>
-          ))}
+                  <Icon className="h-4.5 w-4.5" />
+                </span>
+
+                <div className="flex-1">
+                  <h3 className="mb-2 text-[16px] font-semibold text-ink">
+                    {title}
+                  </h3>
+                  <p className="text-[14.5px] leading-[1.7] text-muted">
+                    {description}
+                  </p>
+                </div>
+
+                {href && (
+                  <a
+                    href={href}
+                    className="mt-auto inline-flex items-center gap-1 text-[13px] font-semibold text-accent hover:underline"
+                  >
+                    {linkLabel}
+                    <span aria-hidden="true"> →</span>
+                  </a>
+                )}
+              </motion.div>
+            ),
+          )}
         </motion.div>
       </div>
     </section>
